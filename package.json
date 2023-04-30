@@ -1,0 +1,28 @@
+{
+  "name": "starter-template_vue-3-vite-bootstrap-5-with-icons",
+  "version": "1.0.1",
+  "description": "Boilerplate for Vue 3 with Vite and Bootstrap 5 with Icons",
+  "license": "CC-BY-4.0",
+  "author": "younoch295@gmail.com",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "npm": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "pinia": "^2.0.35",
+    "vue": "^3.1.2",
+    "vue-router": "^4.0.10"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/compiler-sfc": "^3.1.2",
+    "sass": "^1.62.0",
+    "sass-loader": "^10.4.1",
+    "vite": "^4.0.4"
+  }
+}
