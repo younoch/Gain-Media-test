@@ -9,7 +9,7 @@
 import { onBeforeUpdate, reactive, ref } from "vue";
 
 const year = new Date().getFullYear();
-const list = reactive([2019, year]);
+const list = reactive([2022, year]);
 const divs = ref([]);
 
 onBeforeUpdate(() => {
