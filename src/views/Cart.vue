@@ -13,7 +13,7 @@
         </template>
           <button type="button" class="btn btn-primary btn-block btn-lg">Proceed to Pay</button>
         </template>
-        <h2 class=" mt-2 text-center text-muted">No item in cart List</h2>
+        <h2 v-else class=" mt-2 text-center text-muted">No item in cart List</h2>
         
       </div>
     </div>

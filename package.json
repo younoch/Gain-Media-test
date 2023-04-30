@@ -6,7 +6,7 @@
   "author": "younoch295@gmail.com",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port=4000",
     "build": "vite build",
     "npm": "vite preview"
   },
