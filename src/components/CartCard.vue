@@ -37,7 +37,6 @@ const props = defineProps({
   },
 });
 const add = () => {
-  console.log(props.product.quantity, props.product.stock );
   if (props.product.quantity < props.product.stock) {
     
     props.product.quantity++;

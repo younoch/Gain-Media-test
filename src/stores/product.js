@@ -5,10 +5,10 @@ export const useProductStore = defineStore('product', {
     productList: [
       {
         id: 1,
-        name: "Moisture powder",
+        name: "Moisture t-shirt",
         category: 'beauty',
         price: 453.00,
-        image: '/public/images/1.png',
+        image: '/images/1.png',
         stock: 5, 
       },
       {
@@ -16,39 +16,39 @@ export const useProductStore = defineStore('product', {
         name: "Be 69",
         category: 'beauty',
         price: 450.00,
-        image: '/public/images/2.png',
+        image: '/images/2.png',
         stock: 4, 
       },
       {
         id: 3,
-        name: "Cezezne powder",
+        name: "Cezezne t-shirt",
         category: 'beauty',
         price: 560.00,
-        image: '/public/images/3.png',
+        image: '/images/3.png',
         stock: 6, 
       },
       {
         id: 4,
-        name: "Baking powder",
+        name: "Baking t-shirt",
         category: 'beauty',
         price: 600.00,
-        image: '/public/images/4.png',
+        image: '/images/4.png',
         stock: 8, 
       },
       {
         id: 5,
-        name: "Kamino powder",
+        name: "Kamino t-shirt",
         category: 'beauty',
         price: 750.00,
-        image: '/public/images/5.png',
+        image: '/images/5.png',
         stock: 10, 
       },
       {
         id: 6,
-        name: "Chenise powder",
+        name: "Chenise t-shirt",
         category: 'beauty',
         price: 890.00,
-        image: '/public/images/6.png',
+        image: '/images/6.png',
         stock: 0, 
       },
     ],
@@ -56,7 +56,9 @@ export const useProductStore = defineStore('product', {
     query: ''
   }),
   getters: {
-    getProducts: (state) => state.productList.filter(product => product.name.toLowerCase().includes(state.query.toLowerCase())) || []
+    getProducts: (state) => state.productList.filter(product => product.name.toLowerCase().includes(state.query.toLowerCase())) || [],
+    getCartList: (state) => state.cartList || [],
+    getCartTotal: (state) => state.cartList.reduce((sum, item) => sum + item.price * item.quantity, 0)
   },
   actions: {
     addToCart(payload) {
@@ -64,7 +66,6 @@ export const useProductStore = defineStore('product', {
       this.productList[productIndex].stock--
 
       let indexInCart = this.cartList.findIndex(item => item.id === payload.id);
-      console.log(indexInCart);
 
       if (indexInCart !== -1) {
         this.cartList[indexInCart].quantity += 1;
@@ -72,6 +73,11 @@ export const useProductStore = defineStore('product', {
         payload.quantity = 1;
         this.cartList.push(payload);
       }
+    },
+    increseCart(payload) {
+      console.log(payload);
+      let indexInCart = this.cartList.findIndex(item => item.id === payload.id);
+      this.cartList[indexInCart].quantity += 1;
     },
     updateQuery(payload) {
       this.query = payload;
