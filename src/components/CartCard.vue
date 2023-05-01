@@ -1,53 +1,62 @@
-<template>
-    <div class="card rounded-3 mb-4">
-          <div class="card-body p-4">
-            <div class="row d-flex justify-content-between align-items-center">
-              <div class="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  :src="product.image"
-                  class="img-fluid rounded-3" alt="Cotton T-shirt">
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-3">
-                <p class="lead fw-normal mb-2">{{ product.name }}</p>
-              </div>
-              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button class="btn fs-2 px-1"
-                @click="minus">
-                  -
-                </button>
+<template> 
+  <div class="row p-2">
+    <div class="col col-7 d-flex align-items-center">
+      <div
+        class="rounded-pill d-inline-block list-icon d-flex justify-content-center align-items-center border"
+      >
+        <i class="bi-chevron-right font-12"></i>
+      </div>
+      <p class="m-0 ms-2 font-14">{{ product.name }}</p>
+    </div>
 
-                <input id="form1" min="0" name="quantity" :value="product.quantity" type="number"
-                  class="form-control form-control-sm" />
+    <div class="counter d-flex align-items-center col col-2">
+      <button
+        class="rounded-circle d-inline-block event-btn d-flex justify-content-center align-items-center btn btn-outline-secondary p-0 px-2" @click="minus" 
+      >
+        -
+      </button>
+      <span class="d-inline-block px-2 font-14">{{product.quantity}}</span>
+      <button
+        class="rounded-circle d-inline-block event-btn d-flex justify-content-center align-items-center btn btn-outline-secondary p-0 px-2" @click="add"
+      >
+        +
+      </button>
+    </div>
+    <div class="price col col-3"> 
+      <p class="text-end m-0 font-14">{{ (product.price * product.quantity).toFixed(2) }}</p>
 
-                <button class="btn fs-2 px-1"
-                  @click="add">
-                  +
-                </button>
-              </div>
-              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">${{ product.price * product.quantity}}</h5>
-              </div>
-              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-
 const props = defineProps({
   product: {
     type: Object,
-    default: () => {}
-    }
-  
-})
+    default: () => {},
+  },
+});
 const add = () => {
-    props.product.quantity++
-}
+  console.log(props.product.quantity, props.product.stock );
+  if (props.product.quantity < props.product.stock) {
+    
+    props.product.quantity++;
+  }
+};
 const minus = () => {
-    props.product.quantity--
-}
+  if(props.product.quantity) {
+    props.product.quantity--;
+  }
+};
 </script>
+
+<style lang="scss" scoped>
+.list-icon {
+  height: 21px;
+  width: 21px !important;
+}
+.event-btn {
+  height: 18px;
+  width: 18px !important;
+}
+</style>

@@ -3,25 +3,13 @@
     <div class="position-relative d-flex justify-content-center">
           <img :src="product.image"
             class="card-img-top mx-auto mt-2" alt="product" />
-            <span class="position-absolute bg-warning text-white rounded-1 px-1 fw-bolder font-12 top-20 z-2">Out of Stock</span>
+            <div v-show="!product.stock" class="position-absolute bg-warning text-white rounded-1 px-1 fw-bolder font-10 top-20 z-2">Out of Stock</div>
+            <div class="position-absolute bg-secondary text-white rounded-end px-1 fw-bolder font-10 left-5 bottom-30 z-2">${{ product.price.toFixed(2) }}</div>
     </div>
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <p class="small"><a href="#!" class="text-muted">{{ product.category }}</a></p>
-            </div>
-
-            <div class="d-flex justify-content-between mb-3">
-              <h5 class="mb-0">{{ product.name }}</h5>
-              <h5 class="text-dark mb-0">${{ product.price }}</h5>
-            </div>
-
-            <div class="d-flex justify-content-between mb-2">
-              <p v-if="product.stock" class="text-muted mb-0">Stock: <span class="fw-bold">{{ product.stock }}</span></p>
-              <p v-else class="text-warning mb-0">Out of Stock</p>
-            </div>
-            <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-outline-primary btn-sm mt-2" type="button" :disabled="!product.stock" @click="addProductCart">
-                    Add to Cart
+          <div class="card-body pt-0">
+            <div class="d-flex flex-column"> 
+                  <button class="btn btn-secondary btn-secondary:active btn-sm mt-2" type="button" :disabled="!product.stock" @click="addProductCart">
+                    {{ product.name }}
                   </button>
                 </div>
           </div>

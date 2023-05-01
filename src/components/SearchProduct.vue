@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-white p-2 mb-2 mb-md-3">
+  <div class="row bg-white p-2 mb-1 mb-md-2">
     <div class="col col-6 col-sm-9 px-1">
       <div class="input-group">
         <div class="border px-3 py-1 bg-light">
@@ -9,7 +9,7 @@
           type="search"
           v-model="query"
           class="form-control"
-          placeholder="Search"
+          placeholder="Search Product"
           aria-label="Search"
           aria-describedby="search-addon"
           @keyup="updateQuery(query)"
