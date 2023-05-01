@@ -1,10 +1,13 @@
 <template>
-  <div class="card">
+  <div class="card border-0">
+    <div class="position-relative d-flex justify-content-center">
           <img :src="product.image"
-            class="card-img-top" alt="Laptop" />
+            class="card-img-top mx-auto mt-2" alt="product" />
+            <span class="position-absolute bg-warning text-white rounded-1 px-1 fw-bolder font-12 top-20 z-2">Out of Stock</span>
+    </div>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <p class="small"><a href="#!" class="text-muted">{{ product.cetegory }}</a></p>
+              <p class="small"><a href="#!" class="text-muted">{{ product.category }}</a></p>
             </div>
 
             <div class="d-flex justify-content-between mb-3">

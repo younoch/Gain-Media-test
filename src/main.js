@@ -2,6 +2,7 @@ import { createApp } from "vue";
 
 import "bootstrap/scss/bootstrap.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { createPinia } from 'pinia'
 
 import App from "@/App.vue";

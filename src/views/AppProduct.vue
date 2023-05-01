@@ -15,4 +15,5 @@ const { getProducts } = storeToRefs(productStore);
 
 const products = computed(() => getProducts.value)
 
+
 </script>
