@@ -15,7 +15,7 @@
       </div>
       <div class="mt-2 h-100 flex-grow-1 d-flex flex-column justify-content-between">
           <template v-if="cartList.length">
-            <div>
+            <div class="mb-4 mb-lg-5">
             <template v-for="(item, index) in cartList" :key="index">
               <CartCard class="border-top" :class="{ 'border-bottom': cartList.length -1 === index}" :product="item" />
             </template>
@@ -47,7 +47,7 @@
             </div>
           </template>
           <h2 v-else class="mt-2 text-center text-muted">
-            No item in cart List
+            No item in cart
           </h2>
         </div>
     </div>

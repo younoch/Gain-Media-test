@@ -26,7 +26,6 @@ for (let i = 0; i < props.products.length; i++) {
         categories.push(props.products[i].category);
     }
 }
-console.log(categories);
 </script>
 
 <style></style>
