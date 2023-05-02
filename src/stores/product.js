@@ -30,7 +30,7 @@ export const useProductStore = defineStore('product', {
       {
         id: 4,
         name: "Baking t-shirt",
-        category: 'beauty',
+        category: 'Type 3',
         price: 600.00,
         image: '/images/4.png',
         stock: 8,
@@ -171,9 +171,17 @@ export const useProductStore = defineStore('product', {
     },
 
     removeItemFromCart(id) {
-      this.cartList = this.cartList.filter(function (product) {
-        return product.id != id;
+      // this.cartList = this.cartList.filter(function (product) {
+      //   return product.id != id;
+      // });
+      const indexToRemoveCart = this.cartList.findIndex(function(product) {
+        return product.id == id;
       });
+      this.cartList.splice(indexToRemoveCart, 1);
+      const indexToRProductCart = this.productList.findIndex(function(product) {
+        return product.id == id;
+      });
+      this.productList[indexToRProductCart].stock = this.productList[indexToRProductCart].stock + this.productList[indexToRProductCart].quantity
     },
 
     updateQuery(payload) {

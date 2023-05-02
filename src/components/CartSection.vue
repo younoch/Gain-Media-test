@@ -1,6 +1,6 @@
 <template>
   <section class=" py-2">
-    <div class="container min-vh-90 d-flex flex-column  bg-white p-2">
+    <div class="container min-vh-100 d-flex flex-column  bg-white p-2">
         <div class="input-group">
         <div class="border px-3 py-1 bg-light">
           <i class="bi-search font-12"></i>
